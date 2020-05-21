@@ -1,5 +1,4 @@
 import sys
-<<<<<<< HEAD
 import pandas as pd
 import numpy as np
 import pickle
@@ -138,28 +137,6 @@ def save_model(model, model_filepath):
 
     """
     pickle.dump(model, open(model_filepath, 'wb'))
-=======
-
-
-def load_data(database_filepath):
-    pass
-
-
-def tokenize(text):
-    pass
-
-
-def build_model():
-    pass
-
-
-def evaluate_model(model, X_test, Y_test, category_names):
-    pass
-
-
-def save_model(model, model_filepath):
-    pass
->>>>>>> bc1ed0e5e9a3a7855b38114648d0fea04acd03b6
 
 
 def main():
