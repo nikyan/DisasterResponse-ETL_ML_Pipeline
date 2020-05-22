@@ -15,8 +15,9 @@ The project includes a web app where an emergency worker can input a new message
 There are three main components of the project:
 
 1. ETL Pipeline
-The ETL pipeline is the Extract, Transform, and Load process. Here, I will read the dataset, clean the data, and then store it in a SQLite database.
+The ETL pipeline is the Extract, Transform, and Load process. Here, the code reads the dataset, cleans the data, and then stores it in a SQLite database.
 The ETL pipeline code is included in an ETL script: process_data.py.
+The data is stored in 'DisasterResponse.db'.
 
 2. Machine Learning Pipeline
 In the machine learning pipeline, I first split the data into a training set and a test set. Then, I create a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that uses the message column to predict classifications for 36 categories (multi-output classification). Finally, the model is exported to a pickle file. The machine learning code is included train_classifier.py.
@@ -36,6 +37,18 @@ The results are displayed using a Flask web app. The Flask app uses the database
 2. Run the following command in the app's directory to run your web app.
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
-http://view6914b2f4-3001.udacity-student-workspaces.com
+3. Go to http://view6914b2f4-3001.udacity-student-workspaces.com
+
+Once at the Flask app, you can use the text box to enter any message and click 'Classify Message'. This will open another page that has the classification results from the machine learning model.
+
+The Flask app also consists of three visualizations:
+
+1. First visualization shows distribution of message genre.
+
+
+2. Second visualization shows distribution of 36 categories in the DisasterResponse.db.
+
+
+3. Third visualization shows the word frequency from the message data set after cleaning for punctuation, whitespace and stopwords.
+
 

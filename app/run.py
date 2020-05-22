@@ -52,18 +52,22 @@ def index():
     # data for second graph
     dist = []
     names = []
+    
+    # loop through each column and add the values for each column to get distribution 
     for idx, name in enumerate(df.columns):
         if idx>3:
             names.append(name)
             dist.append(df[name].sum())
     
-    # data for third graph
-    # calculate word frequency
+    # data for third graph - calculate word frequency
+    # lowercase and split the sentences for words
     words = df.message.str.lower()
     words = pd.DataFrame(words.str.split(' '))
+    
     # create list of words
     words_list = np.unique(np.hstack(words.message)).tolist()
-    # clean up data
+    
+    # clean up the data
     words_list = [re.sub('[^0-9A-Za-z!?]+', ' ', x) for x in words_list]
     words_list = [re.sub('!','',x) for x in words_list]                                   
     words_list = [x for x in words_list if len(x) > 2]
@@ -74,10 +78,15 @@ def index():
     # remove stopwords
     words_list = [x for x in words_list if x not in stopwords]
     
+    # calculate frequency for each word
     words_counter = Counter(words_list)
+    
+    # prepare data for visualization
     words_df = pd.DataFrame.from_dict(words_counter, orient='index')
     words_df.rename(columns={0: 'count'}, inplace=True)
     words_df.sort_values('count', ascending=False, inplace=True)
+    
+    # get the top 20 words
     words_df = words_df.head(20)
     
     
