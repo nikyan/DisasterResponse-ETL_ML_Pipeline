@@ -20,6 +20,15 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    """
+    A function to tokenize and lemmatize message data.
+    
+    INPUT:  
+    text - corpus of messages
+
+    OUTPUT: 
+    clean_tokens - returns clean tokens with the message tokenized, lemmatized, case normalized and cleaned for any leading/trailing space
+    """
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
