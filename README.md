@@ -44,11 +44,14 @@ Once at the Flask app, you can use the text box to enter any message and click '
 The Flask app also consists of three visualizations:
 
 1. First visualization shows distribution of message genre.
+
 ![GitHub Logo](images/chart_1.png)
 
 2. Second visualization shows distribution of 36 categories in the DisasterResponse.db.
+
 ![GitHub Logo](images/chart_2.png)
 
 3. Third visualization shows the word frequency from the message data set after cleaning for punctuation, whitespace and stopwords.
+
 ![GitHub Logo](images/chart_3.png)
 
